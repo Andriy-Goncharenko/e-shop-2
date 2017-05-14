@@ -1,26 +1,27 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-14 15:34:47
+/* Smarty version 3.1.32-dev-1, created on 2017-05-14 22:03:32
   from "C:\xampp\htdocs\Smarty\temp\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_59185cf7c317e8_15773712',
+  'unifunc' => 'content_5918b814836fd8_32553842',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4fad23b9df192dd2e1a06952b2d206b888c7082b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Smarty\\temp\\index.tpl',
-      1 => 1494768884,
+      1 => 1494787211,
       2 => 'file',
     ),
   ),
   'includes' => 
   array (
+    'file:menu.tpl' => 1,
   ),
 ),false)) {
-function content_59185cf7c317e8_15773712 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5918b814836fd8_32553842 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -54,19 +55,10 @@ function content_59185cf7c317e8_15773712 (Smarty_Internal_Template $_smarty_tpl)
             <li><a href="#nav" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
         </ul>
     </div>
+    <?php $_smarty_tpl->_subTemplateRender('file:menu.tpl', $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+?>
 
-    <!-- Nav -->
-    <nav id="nav">
-        <ul class="links">
-            <li class="active"><a href="index.html">Главная</a></li>
-            <li><a href="#">Телефоны</a></li>
-            <li><a href="#">Планшеты</a></li>
-            <li><a href="#">Ноутбуки</a></li>
-        </ul>
-        <ul class="icons">
-            <li><a href="#" class="icon fa-shopping-basket"><span class="label">Корзина</span></a></li>
-        </ul>
-    </nav>
+
 
     <!-- Main -->
     <div id="main">

@@ -41,9 +41,9 @@
             {foreach $items as $item}
                 <article>
                     <header>
-                        <h2><a href="./?page=product&id={$item['id']}">{$item['name']}</a></h2>
+                        <h2><a href="#">{$item['name']}</a></h2>
                     </header>
-                    <a href="#" class="image fit"><img src="{$item['img']}" alt=""/></a>
+                    <a href="./?page=product&id={$item['id']}" class="image fit"><img src="{$item['img']}" alt=""/></a>
                     <p>{$item['description']}<br>
                         <strong>Цена : {$item['price']} грн</strong>
                     </p>

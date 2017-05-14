@@ -24,42 +24,19 @@
     <!-- Intro -->
     <div id="intro">
         <h1>Telephonilka</h1>
-        <p>Сайт создан студентами <a href="https://vk.com/andriy_gonharenko">@Гончаренко</a> <a
-                    href="https://vk.com/bumpua">@Харченко</a> <a href="https://vk.com/id267849887">@Беседин</a></p>
         <ul class="actions">
             <li><a href="#nav" class="button icon solo fa-arrow-down scrolly">Continue</a></li>
         </ul>
     </div>
-    {include file='menu.tpl'}
 
+    {include file='menu.tpl'}
 
     <!-- Main -->
     <div id="main">
-
-        <!-- Posts -->
-        <section class="posts">
-            {foreach $items as $item}
-                <article>
-                    <header>
-                        <h2><a href="./?page=product&id={$item['id']}">{$item['name']}</a></h2>
-                    </header>
-                    <a href="#" class="image fit"><img src="{$item['img']}" alt=""/></a>
-                    <p>{$item['description']}<br>
-                        <strong>Цена : {$item['price']} грн</strong>
-                    </p>
-                    <ul class="actions">
-                        <li><a href="./?page=product&id={$item['id']}" class="button">Просмотр</a></li>
-                        <li><a onclick="send({$item['id']})" class="button">Купить</a></li>
-                    </ul>
-                </article>
-            {/foreach}
-        </section>
+        <header class="major">
+            <h1>Пусто</h1>
+        </header>
     </div>
-
-    <!-- Copyright -->
-    <div id="copyright">
-    </div>
-
 </div>
 
 <!-- Scripts -->

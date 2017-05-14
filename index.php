@@ -60,7 +60,28 @@ function load($p, $s, $db)
             index($s, $db);
             break;
         }
+        case 'catalog': {
+            catalog($s, $db);
+            break;
+        }
+        case 'product': {
+            product($s, $db);
+            break;
+        }
     }
+}
+
+/**
+ * Меню сайта
+ */
+function menu($s, $db)
+{
+
+    //SQL Запрос
+    $sql = 'SELECT * FROM `catalog` WHERE `p_id` = 0';
+    $catalogs = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+    $s->assign('catalog', $catalogs);
 }
 
 /**
@@ -70,10 +91,62 @@ function load($p, $s, $db)
  */
 function index($s, $db)
 {
+    menu($s, $db);
     //SQL Запрос
     $sql = 'SELECT * FROM `product` WHERE `show` = 1';
     $items = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
 
     $s->assign('items', $items);
     $s->display('index.tpl');
+}
+
+/**
+ * @param $s
+ * @param $db
+ * Перегод в катологи и выборка по каталогом
+ */
+function catalog($s, $db)
+{
+    menu($s, $db);
+    $page = isset($_GET['id']) ? $_GET['id'] : null;
+    if ($page > 0) {
+        //SQL Запрос
+        $sql = 'SELECT * FROM `product` WHERE `parent_id` =' . $page;
+
+        $items = $db->query($sql);
+        if ($items) {
+            $items = $items->fetchAll(PDO::FETCH_ASSOC);
+            if (count($items) > 0) {
+                $s->assign('items', $items);
+                $s->display('catalogs.tpl');
+            } else {
+                $s->display('empty.tpl');
+            }
+        } else {
+            $s->display('empty.tpl');
+        }
+    } else {
+        header('Location:./');
+    }
+}
+
+function product($s, $db)
+{
+    menu($s, $db);
+    $page = isset($_GET['id']) ? $_GET['id'] : null;
+    if ($page > 0) {
+        //SQL Запрос
+        $sql = 'SELECT * FROM `product` WHERE `id` =' . $page;
+
+        $item = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC)[0];
+        if ($item) {
+            $s->assign('item', $item);
+            $s->display('product.tpl');
+
+        } else {
+            $s->display('empty.tpl');
+        }
+    } else {
+        header('Location:./');
+    }
 }
