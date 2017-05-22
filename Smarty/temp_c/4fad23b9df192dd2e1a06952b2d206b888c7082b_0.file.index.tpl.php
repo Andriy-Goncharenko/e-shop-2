@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.32-dev-1, created on 2017-05-14 22:03:32
+/* Smarty version 3.1.32-dev-1, created on 2017-05-22 15:01:20
   from "C:\xampp\htdocs\Smarty\temp\index.tpl" */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.32-dev-1',
-  'unifunc' => 'content_5918b814836fd8_32553842',
+  'unifunc' => 'content_5922e120162e84_46776738',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '4fad23b9df192dd2e1a06952b2d206b888c7082b' => 
     array (
       0 => 'C:\\xampp\\htdocs\\Smarty\\temp\\index.tpl',
-      1 => 1494787211,
+      1 => 1494792497,
       2 => 'file',
     ),
   ),
@@ -21,7 +21,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:menu.tpl' => 1,
   ),
 ),false)) {
-function content_5918b814836fd8_32553842 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5922e120162e84_46776738 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <!DOCTYPE HTML>
 <!--
@@ -72,7 +72,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
 ?>
                 <article>
                     <header>
-                        <h2><a href="#"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
+                        <h2><a href="./?page=product&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['item']->value['name'];?>
 </a></h2>
                     </header>
                     <a href="#" class="image fit"><img src="<?php echo $_smarty_tpl->tpl_vars['item']->value['img'];?>
@@ -83,7 +84,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['item']->value) {
  грн</strong>
                     </p>
                     <ul class="actions">
-                        <li><a href="#" class="button">Просмотр</a></li>
+                        <li><a href="./?page=product&id=<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
+" class="button">Просмотр</a></li>
                         <li><a onclick="send(<?php echo $_smarty_tpl->tpl_vars['item']->value['id'];?>
 )" class="button">Купить</a></li>
                     </ul>

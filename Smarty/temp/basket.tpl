@@ -1,12 +1,8 @@
 <!DOCTYPE HTML>
-<!--
-	Massively by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+
 <html>
 <head>
-    <title>Generic Page - Massively by HTML5 UP</title>
+    <title></title>
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" href="assets/css/main.css"/>
@@ -24,20 +20,7 @@
         <a href="index.html" class="logo">Massively</a>
     </header>
 
-    <!-- Nav -->
-    <nav id="nav">
-        <ul class="links">
-            <li><a href="index.html">This is Massively</a></li>
-            <li class="active"><a href="generic.html">Generic Page</a></li>
-            <li><a href="elements.html">Elements Reference</a></li>
-        </ul>
-        <ul class="icons">
-            <li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
-            <li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
-            <li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-            <li><a href="#" class="icon fa-github"><span class="label">GitHub</span></a></li>
-        </ul>
-    </nav>
+    {include file='menu.tpl'}
 
     <!-- Main -->
     <div id="main">
@@ -57,27 +40,52 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <tr>
-                                <td>Item 1</td>
-                                <td>Ante turpis integer aliquet porttitor.</td>
-                                <td>29.99</td>
-                            </tr>
+                            {foreach $items as $item}
+                                <tr class="items-{$item['id']}">
+                                    <td> {$item['name']}</td>
+                                    <td> {$item['description']}</td>
+                                    <td> {$item['price']}</td>
+                                    <td><a class="icon  fa-trash-o" onclick='del({$item['id']})'><span
+                                                    class="label"></span></a></td>
+                                </tr>
+                            {/foreach}
                             </tbody>
                             <tfoot>
                             <tr>
                                 <td colspan="2"></td>
-                                <td>100.00</td>
+                                <td>{$sum}</td>
                             </tr>
                             </tfoot>
                         </table>
                     </div>
                 </div>
-                <div class="6u 12u"></div>
+                <div class="6u 12u$(small)">
+                    <div class="12u">
+                        <input type="text" id="name" value="" placeholder="Ваше имя">
+                    </div>
+                    <br>
+                    <div class="12u">
+                        <input type="text" id="tel" value="" placeholder="Ваше телефон">
+                    </div>
+                    <br>
+                    <div class="12u">
+                        <input type="text" id="adr" value="" placeholder="Адрес доставки">
+                    </div>
+                    <br>
+                    <div class="12u">
+                        <ul class="actions vertical">
+                            <li><a onclick="save()" class="button fit">Заказать</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </section>
     </div>
 </div>
 
+<!-- Copyright -->
+<div id="copyright">
+</div>
 <!-- Scripts -->
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/jquery.scrollex.min.js"></script>

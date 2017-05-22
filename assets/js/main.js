@@ -268,6 +268,26 @@
 })(jQuery);
 
 function send(id) {
-    console.log('ID:' + id);
-    $.snackbar({content: "Товар добавлен в корзину"});
+    $.post('./index.php', {basket: id}, function (data) {
+        $.snackbar({content: "Товар добавлен в корзину"});
+    });
+}
+function del(srt) {
+    srt = ".items-" + srt;
+    var s = parseInt($(srt).find('td:eq(2)').text());
+    $(srt).remove();
+    $('tfoot td:eq(1)').text(parseInt($('tfoot td:eq(1)').text()) - s);
+}
+function save() {
+    var data = {
+        name: $('#name').val(),
+        tel: $('#tel').val(),
+        adr: $('#adr').val(),
+        sum: $('tfoot td:eq(1)').text()
+    };
+    $.post('./index.php?save=1', data, function (data) {
+        console.log(data);
+        $.snackbar({content: data});
+
+    })
 }

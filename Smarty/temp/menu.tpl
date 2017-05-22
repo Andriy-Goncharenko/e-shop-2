@@ -7,6 +7,6 @@
         {/foreach}
     </ul>
     <ul class="icons">
-        <li><a href="#" class="icon fa-shopping-basket"><span class="label">Корзина</span></a></li>
+        <li><a href="./?page=basket" class="icon fa-shopping-basket"><span class="label">Корзина</span></a></li>
     </ul>
 </nav>
